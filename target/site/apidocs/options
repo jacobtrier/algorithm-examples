@@ -1,0 +1,22 @@
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/Users/AKA/CphBus/algorithms/algorithm-examples/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2017. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/AKA/CphBus/algorithms/algorithm-examples/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'algorithm-examples 1.0-SNAPSHOT API'
+-linkoffline
+'http://docs.oracle.com/javase/8/docs/api' '/Users/AKA/CphBus/algorithms/algorithm-examples/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'algorithm-examples 1.0-SNAPSHOT API'
