@@ -3,7 +3,7 @@ package dk.cphbusiness.algorithm.examples.searching;
 /**
  * An array that grows when filled.
  * @see DynamicArray for a slightly optimised version
- * @param <T> 
+ * @param <T> the type of the array elements
  */
 public class FlexibleArray<T> {
   private T[] less = null;

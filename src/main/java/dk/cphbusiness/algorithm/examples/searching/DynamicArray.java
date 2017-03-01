@@ -1,7 +1,7 @@
 package dk.cphbusiness.algorithm.examples.searching;
 
 /**
- * Dynamic Array is an optimised version of <c>FlexibleArray</c>
+ * Dynamic Array is an optimised version of <code>FlexibleArray</code>
  * @param <T> Type of the items
  * @see FlexibleArray
  */
