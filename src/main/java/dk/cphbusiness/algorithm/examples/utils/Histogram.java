@@ -26,6 +26,7 @@ public class Histogram {
 
   /**
    * Usage example.
+   * @param args are not used
    */
   public static void main(String[] args) {
     int[] list = new int[] {1, 2, 3, 1, 10, 11};

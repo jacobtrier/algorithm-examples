@@ -2,7 +2,7 @@ package dk.cphbusiness.algorithm.examples.searching;
 
 /**
  * An array that grows when filled.
- * @see DynamicArray for a slightly optimised version
+ * Please see {@link DynamicArray} for a slightly optimised version
  * @param <T> the type of the array elements
  */
 public class FlexibleArray<T> {
