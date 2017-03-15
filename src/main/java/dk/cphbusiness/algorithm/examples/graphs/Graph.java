@@ -1,5 +1,6 @@
 package dk.cphbusiness.algorithm.examples.graphs;
 
+import java.io.PrintStream;
 import java.util.Collection;
 
 public interface Graph<D,W> {
@@ -14,6 +15,8 @@ public interface Graph<D,W> {
   
   Collection<Vertex<D,W>> getVertices();
   Collection<Edge<D,W>> getEdges();
+  
+  void print(PrintStream out);
   
   interface Vertex<D,W> {
     D getData();

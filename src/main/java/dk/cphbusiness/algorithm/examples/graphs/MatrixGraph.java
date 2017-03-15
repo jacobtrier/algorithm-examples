@@ -1,5 +1,6 @@
 package dk.cphbusiness.algorithm.examples.graphs;
 
+import java.io.PrintStream;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -9,6 +10,19 @@ public class MatrixGraph<D, W> implements Graph<D, W> {
 
   public MatrixGraph(D... data) {
     addVertex(data);
+    }
+  
+  @Override
+  public void print(PrintStream out) {
+    out.print("\nVertices          Edges ");
+    for (int j = 0; j < data.length; j++) out.printf("%4d", j);
+    out.print("\n----------------  ----------------------------------------------------------------");
+    for (int i = 0; i < data.length; i++) {
+      out.printf("\n%3d | %-8s    %3d | ", i, data[i], i);
+      for (int j = 0; j < data.length; j++) out.printf("%4s", weights[i][j] == null ? "." : weights[i][j]);
+      }
+    out.println();
+    out.println();
     }
   
   @Override
@@ -36,7 +50,7 @@ public class MatrixGraph<D, W> implements Graph<D, W> {
     }
   
   private class MatrixVertex implements Vertex<D, W> {
-    private int i;
+    private final int i;
 
     public MatrixVertex(int i) {
       this.i = i;
@@ -60,8 +74,8 @@ public class MatrixGraph<D, W> implements Graph<D, W> {
     }
   
   private class MatrixEdge implements Edge<D, W> {
-    private int i;
-    private int j;
+    private final int i;
+    private final int j;
 
     public MatrixEdge(int i, int j) {
       this.i = i;
@@ -75,7 +89,7 @@ public class MatrixGraph<D, W> implements Graph<D, W> {
 
     @Override
     public Vertex<D, W> getHeadVertex() {
-      return new MatrixVertex(i);
+      return new MatrixVertex(j);
       }
     
     }

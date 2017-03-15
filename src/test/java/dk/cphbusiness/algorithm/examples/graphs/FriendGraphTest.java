@@ -1,7 +1,13 @@
 package dk.cphbusiness.algorithm.examples.graphs;
 
+//import static co.unruly.matchers.StreamMatchers.allMatch;
+//import static org.hamcrest.CoreMatchers.anyOf;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import static org.hamcrest.CoreMatchers.is;
+import org.hamcrest.Matcher;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.*;
+import static dk.kalhauge.matchers.PredicateMatcher.where;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -46,12 +52,33 @@ public class FriendGraphTest {
     friends.addEdge(1, "Phillip", "Adam", true);
     friends.addEdge(1, "Phillip", "Mark", true);
     friends.addEdge(1, "Mikkel", "Mark", true);
+    //friends.addEdge(2, "Lily", "Carol", false);
+    //friends.print(System.out);
     }
-  
+
+ 
   @Test
   public void testAdamsFriends() {
     Graph.Vertex<String, Integer> adam = friends.vertexOf("Adam");
     assertThat(adam.getAdjacentEdges().size(), is(3));
-    //assertThat(adam.getAdjacentEdges(), containsInAnyOrder("Jonnas", "Carol", "Phillip"));
+//    assertThat(
+//        adam.getAdjacentEdges().stream()
+//            .map(e -> e.getHeadVertex().getData()), 
+//        allMatch(anyOf(is("Jonnas"),is("Carol"),is("Phillip")))
+//        );
+    assertThat(
+        adam.getAdjacentEdges().stream()
+            .map(e -> e.getHeadVertex().getData())
+            .collect(Collectors.toList()), 
+        containsInAnyOrder("Jonnas", "Carol", "Phillip")
+        );
+//    assertThat(
+//        adam.getAdjacentEdges(),
+//        containsInAnyOrder(
+//            where((Graph.Edge<String,Integer> e) -> e.getHeadVertex().getData().equals("Jonnas")),
+//            where((Graph.Edge<String,Integer> e) -> e.getHeadVertex().getData().equals("Carol")),
+//            where((Graph.Edge<String,Integer> e) -> e.getHeadVertex().getData().equals("Phillip"))
+//            )
+//        );
     }
   }
