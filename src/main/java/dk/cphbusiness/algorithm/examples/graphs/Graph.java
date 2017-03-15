@@ -6,6 +6,10 @@ public interface Graph<D,W> {
   void addVertex(D... data);
   void addEdge(W weight, Vertex<D,W> tail, Vertex<D,W> head, boolean directed);
   
+  default void addEdge(W weight, D tailData, D headData, boolean directed) {
+    addEdge(weight, vertexOf(tailData), vertexOf(headData), directed);
+    }
+  
   Vertex<D, W> vertexOf(D data);
   
   Collection<Vertex<D,W>> getVertices();
