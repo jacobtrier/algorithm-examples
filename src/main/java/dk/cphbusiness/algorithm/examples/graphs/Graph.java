@@ -16,7 +16,9 @@ public interface Graph<D,W> {
   Collection<Vertex<D,W>> getVertices();
   Collection<Edge<D,W>> getEdges();
   
-  void print(PrintStream out);
+  default void print(PrintStream out) {
+    out.println(toString());
+    }
   
   interface Vertex<D,W> {
     D getData();
