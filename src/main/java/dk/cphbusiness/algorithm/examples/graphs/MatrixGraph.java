@@ -95,11 +95,11 @@ public class MatrixGraph<D, W> implements Graph<D, W> {
     }
 
   @Override
-  public void addEdge(W weight, Vertex<D, W> tail, Vertex<D, W> head, boolean directed) {
+  public void addEdge(W weight, Vertex<D, W> tail, Vertex<D, W> head, boolean undirected) {
     MatrixVertex t = (MatrixVertex)tail;
     MatrixVertex h = (MatrixVertex)head;
     weights[t.i][h.i] = weight;
-    if (directed) weights[h.i][t.i] = weight;
+    if (undirected) weights[h.i][t.i] = weight;
     }
 
   @Override

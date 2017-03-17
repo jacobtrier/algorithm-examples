@@ -5,10 +5,10 @@ import java.util.Collection;
 
 public interface Graph<D,W> {
   void addVertex(D... data);
-  void addEdge(W weight, Vertex<D,W> tail, Vertex<D,W> head, boolean directed);
+  void addEdge(W weight, Vertex<D,W> tail, Vertex<D,W> head, boolean undirected);
   
-  default void addEdge(W weight, D tailData, D headData, boolean directed) {
-    addEdge(weight, vertexOf(tailData), vertexOf(headData), directed);
+  default void addEdge(W weight, D tailData, D headData, boolean undirected) {
+    addEdge(weight, vertexOf(tailData), vertexOf(headData), undirected);
     }
   
   Vertex<D, W> vertexOf(D data);
