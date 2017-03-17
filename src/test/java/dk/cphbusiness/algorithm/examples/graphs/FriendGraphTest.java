@@ -2,12 +2,9 @@ package dk.cphbusiness.algorithm.examples.graphs;
 
 //import static co.unruly.matchers.StreamMatchers.allMatch;
 //import static org.hamcrest.CoreMatchers.anyOf;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import static org.hamcrest.CoreMatchers.is;
-import org.hamcrest.Matcher;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.*;
-import static dk.kalhauge.matchers.PredicateMatcher.where;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
