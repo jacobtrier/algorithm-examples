@@ -45,5 +45,11 @@ public class TestProgram {
     
     dft.print(System.out);
     
+    System.out.println("=====================");
+    
+    RootedTree<String, Integer> bft = Graphs.breadthFirst(friends, friends.vertexOf("Jack"));
+    
+    bft.print(System.out);
+    
     }
   }
