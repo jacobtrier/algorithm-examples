@@ -38,6 +38,12 @@ public class TestProgram {
     friends.addEdge(1, "Mikkel", "Mark", true);
     
     friends.print(System.out);
-        
+    
+    System.out.println("=====================");
+    
+    RootedTree<String, Integer> dft = Graphs.depthFirst(friends, friends.vertexOf("Jack"));
+    
+    dft.print(System.out);
+    
     }
   }

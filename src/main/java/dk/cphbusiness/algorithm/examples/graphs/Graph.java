@@ -16,12 +16,18 @@ public interface Graph<D,W> {
   Collection<Vertex<D,W>> getVertices();
   Collection<Edge<D,W>> getEdges();
   
+  // Implement this method instead of Vertex.getAdjacentEdges()
+  Collection<Edge<D,W>> getEdgesFrom(Vertex<D,W> vertex);
+  
   default void print(PrintStream out) {
     out.println(toString());
     }
   
   interface Vertex<D,W> {
     D getData();
+    
+    // Implement this method as a conveinience method
+    // using the graps getEdgesFrom(Vertex vertex)
     Collection<Edge<D,W>> getAdjacentEdges();
     }
   
