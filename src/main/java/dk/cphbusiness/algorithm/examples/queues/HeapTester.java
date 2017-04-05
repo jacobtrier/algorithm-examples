@@ -6,7 +6,7 @@ public class HeapTester {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    Heap heap = new Heap(100);
+    Heap<Integer> heap = new Heap<>(new Integer[100]);
     heap.print();
     
     heap.enqueue(33);

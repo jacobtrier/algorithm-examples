@@ -3,12 +3,17 @@ package dk.cphbusiness.algorithm.examples.queues;
 import java.io.PrintStream;
 import java.util.NoSuchElementException;
 
-public class Heap {
-  private final Integer[] data;
+public class Heap<T extends Comparable<T>> implements PriorityQueue<T> {
+  private final T[] data;
   private int size = 0;
+
+//  Does not work - use:  new Heap<String>(new String[capacity])  
+//  public Heap(int capacity) {
+//    data = (T[])new Object[capacity + 1];
+//    }
   
-  public Heap(int capacity) {
-    data = new Integer[capacity];
+  public Heap(T[] data) {
+    this.data = data;
     }
   
   private static int parentOf(int n) { return n/2; }
@@ -23,7 +28,8 @@ public class Heap {
     data[m] = data[0];
     }
   
-  public void enqueue(Integer item) {
+  @Override
+  public void enqueue(T item) {
     int n = ++size;
     data[n] = item;
     do {
@@ -34,10 +40,17 @@ public class Heap {
       }
     while (true);
     }
-  
-  public Integer dequeue() {
+
+  @Override
+  public T peek() {
     if (size == 0) throw new NoSuchElementException();
-    Integer result = data[1];
+    return data[1];
+    }
+  
+  @Override
+  public T dequeue() {
+    if (size == 0) throw new NoSuchElementException();
+    T result = data[1];
     swap(1, size--);
     
     int n = 1;
@@ -61,6 +74,7 @@ public class Heap {
     while (true);
     }
   
+  @Override
   public int size() { return size; }
   
   
