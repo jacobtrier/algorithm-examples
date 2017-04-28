@@ -23,4 +23,4 @@ public class FileUtility {
   // usage:
   // ------------------------
   //   String[] words = 
-  //       FileUtility.toStringArray("PathToTheFile.txt", "[^A-Za-z]");
+  //       FileUtility.toStringArray("PathToTheFile.txt", "[^A-Za-z']+");
