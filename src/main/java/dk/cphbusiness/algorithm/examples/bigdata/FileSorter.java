@@ -4,14 +4,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 
 public class FileSorter {
   public static final long LIMIT = 1_000_000; 
-  
+  //public static final long LIMIT = 1_000; 
+
   public static String sortFile(String inFileName, long count) throws FileNotFoundException, IOException {
     try (BufferedReader inFile = new BufferedReader(new FileReader(inFileName))) {
       return sortFile(inFile, count).getName();
@@ -19,6 +19,7 @@ public class FileSorter {
     }
   
   private static File sortFile(BufferedReader inFile, long count) throws IOException {
+    System.out.println("Sorting "+count+" lines");
     if (count > LIMIT) {
       File firstFile = sortFile(inFile, count/2);
       File secondFile = sortFile(inFile, count - count/2);
@@ -30,6 +31,7 @@ public class FileSorter {
     }  
 
   private static File sortInMemory(BufferedReader inFile, int count) throws IOException {
+    System.out.println("Sorting "+count+" lines in  memory");
     String[] data = new String[count];
     for (int index = 0; index < count; index++) data[index] = inFile.readLine();
     
@@ -43,6 +45,7 @@ public class FileSorter {
     }
   
   private static File mergeFiles(File firstFile, File secondFile) throws IOException {
+    System.out.println("merging ...");
     File outFile = File.createTempFile("bigdata", ".txt", new File("/Users/AKA/tmp"));
     try (BufferedReader inFirst = new BufferedReader(new FileReader(firstFile))) {
       try (BufferedReader inSecond = new BufferedReader(new FileReader(secondFile))) {
@@ -71,6 +74,8 @@ public class FileSorter {
           }
         }
       }
+    firstFile.delete();
+    secondFile.delete();
     return outFile;
     }
   
